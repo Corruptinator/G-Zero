@@ -8,3 +8,5 @@ This is an open-collaboration project where anybody in the Godot Game Engine com
 ![Theory](https://github.com/Corruptinator/G-Zero/blob/master/Concept_Art/G-Zero%20Physics%20Method.png)
 
 As you can see, the idea is that using a raycast, we can tell the "Position" node on where to aim for which in theory can tell the rigidbody to fall towards or in other cases, stay on the loop-de-loop track that allows anti-gravity driving to be possible.
+
+The idea/bottom line is that this project can be used as an additional example to showcase the capabilities of the Godot Game Engine, by being part of the included demo projects when Godot 3.0 is released to the Public.
