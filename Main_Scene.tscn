@@ -136,8 +136,7 @@ directional_shadow_normal_bias = 0.2
 
 [node name="Hovercar" parent="WorldEnvironment" instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49296, 16.9382, -0.548121 )
-friction = 0.0
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.49296, 16.9382, -0.548121 )
 camera = true
 
 [node name="Camera2" type="Camera" parent="WorldEnvironment"]

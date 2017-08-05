@@ -69,7 +69,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="Position/Rotation"]
 
-transform = Transform( -4.15013e-08, 0.313946, -1.05578, 1.3723e-08, 0.94944, 0.349108, 1, 1.95399e-14, -4.86071e-08, -6.41924, 2.85682, 5.68434e-14 )
+transform = Transform( -1, -1.3723e-08, 9.47567e-08, 1.3723e-08, 0.94944, 0.349108, -8.52127e-08, 0.313946, -1.05578, 2.38419e-07, 2.85682, -6.41924 )
 projection = 0
 fov = 65.0
 near = 0.1
@@ -85,11 +85,12 @@ _sections_unfolded = [ "Transform", "doppler" ]
 
 [node name="Driver" type="Position3D" parent="Position/Rotation"]
 
-transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -2, 0, 2.13163e-14 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Car_Visual" type="MeshInstance" parent="Position/Rotation"]
 
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
