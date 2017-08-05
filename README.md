@@ -1,4 +1,4 @@
-# G-Zero
+# G-Zero (Godot Engine Demo Project)
 (Note: This project requires Godot 3.0 Alpha or the latest build from the [Master] Source Code Build.)
 
 A Demo Project utilizing the Open Source Godot Engine to incorporate racing and gameplay core functions based on popular sci-fi racing games such as WipEOut or F-Zero.
