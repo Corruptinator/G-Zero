@@ -18,6 +18,7 @@ func _ready():
 		pass
 	set_fixed_process(true)
 	set_gravity_scale(0)
+	set_use_custom_integrator(true)
 	pass
 
 func _fixed_process(delta):
@@ -49,7 +50,7 @@ func _fixed_process(delta):
 		pass
 	else:
 		#print("off")
-		#get_node("Position").look_at(self.get_global_transform().origin,Vector3(0,1,0))
+		#get_node("Position").look_at(b-Vector3(0,1,0),Vector3(0,1,0))
 		#get_node("Position").rotate_x(get_rotation().x*-1)
 		#get_node("Position").rotate_y(get_rotation().y*-1)
 		#get_node("Position").rotate_z(get_rotation().z*-1)
@@ -61,15 +62,17 @@ func _fixed_process(delta):
 
 	var thruster = self.get_node("Position/Gravity")
 	var driver = self.get_node("Position/Rotation/Driver")
-	var drive_vector = driver.get_global_transform().basis.z
+	var drive_vector = driver.get_global_transform().basis.x
 	var drive_pos = driver.get_global_transform().origin
 	var force_vector = thruster.get_global_transform().basis.y
 	var force_pos = thruster.get_global_transform().origin
 
 	if (Input.is_action_pressed("ui_up")):
-		apply_impulse(self.get_global_transform().origin,(drive_vector*.5))
+		#apply_impulse(self.get_global_transform().origin,(drive_vector*.5))
+		pass
 	elif (Input.is_action_pressed("ui_down")):
-		apply_impulse(self.get_global_transform().origin,(drive_vector*-.5))
+		#apply_impulse(self.get_global_transform().origin,(drive_vector*-.5))
+		pass
 	else:
 		#rotate_x(get_rotation().x*-1)
 		#rotate_y(get_rotation().y*-1)
@@ -94,11 +97,11 @@ func _fixed_process(delta):
 
 func _integrate_forces(state):
 	
-	print(state)
+	#print(state)
 	
 	var thruster = self.get_node("Position/Gravity")
 	var driver = self.get_node("Position/Rotation/Driver")
-	var drive_vector = driver.get_global_transform().basis.z
+	var drive_vector = driver.get_global_transform().basis.x
 	var drive_pos = driver.get_global_transform().origin
 	var force_vector = thruster.get_global_transform().basis.y
 	var force_pos = thruster.get_global_transform().origin
@@ -119,7 +122,11 @@ func _integrate_forces(state):
 #	else:
 #		state.set_angular_velocity(Vector3(0,0,0))
 
-	state.add_force(-force_vector*50*g, Vector3(0,0,0))
+	#state.add_force(-force_vector*50*g, Vector3(0,0,0))
+	var dt = state.get_step()
+	var velocity = state.get_linear_velocity()
+	state.set_linear_velocity((velocity+force_vector*-500)*dt)
+	print(dt)
 
 
 	pass
