@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Script/Main_Car.gd" type="Script" id=1]
+[ext_resource path="res://Script/Main_Car_Alt(backup).gd" type="Script" id=1]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -33,7 +33,7 @@ input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
 collision_mask = 1
-mode = 0
+mode = 2
 mass = 1.0
 friction = 1.0
 bounce = 0.0
