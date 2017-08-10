@@ -67,13 +67,28 @@ func _fixed_process(delta):
 
 	var thruster = self.get_node("Position/Gravity")
 	var driver = self.get_node("Position/Rotation/Driver")
-	var drive_vector = driver.get_global_transform().basis.x
+	var drive_vector = driver.get_global_transform().basis.z
 	var drive_pos = driver.get_global_transform().origin
 	var force_vector = thruster.get_global_transform().basis.y
 	var force_pos = thruster.get_global_transform().origin
 
+
 	if (Input.is_action_pressed("ui_up")):
-		#apply_impulse(self.get_global_transform().origin,(drive_vector*.5))
+		
+		# get current velocity from rigidbody
+		var final_vel = get_linear_velocity()
+		
+		# add drive vector to velocity
+		final_vel += drive_vector
+		
+		# set the new velocity to rigidbody
+		set_linear_velocity(final_vel)
+		
+		# at this point moving forward works, but ground friction
+		# makes the rigidbody roll like a ball. This kinda helps, but
+		# a better solution is needed.
+		set_angular_velocity(Vector3(0,0,0))
+		
 		pass
 	elif (Input.is_action_pressed("ui_down")):
 		#apply_impulse(self.get_global_transform().origin,(drive_vector*-.5))
@@ -90,7 +105,6 @@ func _fixed_process(delta):
 		get_node("Position/Rotation").rotate_y(-1*delta)
 	else:
 		pass
-
 
 	pass
 
@@ -131,7 +145,7 @@ func _integrate_forces(state):
 	var dt = state.get_step()
 	var velocity = state.get_linear_velocity()
 	state.set_linear_velocity((velocity+force_vector*-500)*dt)
-	print(dt)
+#	print(dt)
 
 
 	pass
