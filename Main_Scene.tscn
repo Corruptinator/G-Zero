@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Models/Main_Road.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/Car.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Script/Main_Car_Alt.gd" type="Script" id=3]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -137,10 +136,8 @@ directional_shadow_normal_bias = 0.2
 
 [node name="Hovercar" parent="WorldEnvironment" instance=ExtResource( 2 )]
 
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.49296, 16.9382, -0.548121 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.49296, 4.92326, -0.548121 )
 mode = 0
-script = ExtResource( 3 )
-camera = true
 
 [node name="Camera2" type="Camera" parent="WorldEnvironment"]
 
