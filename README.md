@@ -10,3 +10,8 @@ This is an open-collaboration project where anybody in the Godot Game Engine com
 As you can see, the idea is that using a raycast, we can tell the "Position" node on where to aim, using the "Gravity" node above the RigidBody which in theory can tell which way to fall towards to, or in other cases stay on the loop-de-loop track that allows anti-gravity driving to be possible.
 
 The idea/bottom line is that this project can be used as an additional example to showcase the capabilities of the Godot Game Engine, by being part of the included demo projects when Godot 3.0 is released to the Public.
+
+# CREDITS
+
+Corruptinator - Modeling, Coding, Project Admin
+TassuP - Coding (Worked on the Anti-Gravity Driving, Congrats!) 
