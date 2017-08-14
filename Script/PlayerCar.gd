@@ -1,5 +1,11 @@
 extends RigidBody
 
+# Car settings
+var acceleration = 1.0
+var deceleration = 0.5
+var turning_acc = 0.005
+var turning_dec = 0.9
+var gravity_str = 0.7
 
 
 
@@ -10,19 +16,24 @@ var turn_force = 0.0
 func _ready():
 	set_fixed_process(true)
 
+func _fixed_process(delta):
+	upd_turning()
+	upd_driving()
+	upd_gravity()
+
 func upd_turning():
 	
 	# Steer left/right
 	if (Input.is_action_pressed("ui_left")):
-		turn_force += 0.01
+		turn_force += turning_acc
 	if (Input.is_action_pressed("ui_right")):
-		turn_force -= 0.01
+		turn_force -= turning_acc
 	
 	# Rotate around y-axis
 	rotate(get_global_transform().basis.y,turn_force)
 	
 	# Dampen turning
-	turn_force *= 0.8
+	turn_force *= turning_dec
 	
 func upd_driving():
 	
@@ -31,11 +42,11 @@ func upd_driving():
 	
 	# Drive forward
 	if (Input.is_action_pressed("ui_up")):
-		l_vel += forward_vector
+		l_vel += forward_vector * acceleration
 		
 	# Brake / reverse
 	if (Input.is_action_pressed("ui_down")):
-		l_vel -= forward_vector
+		l_vel -= forward_vector * acceleration
 		
 	set_linear_velocity(l_vel)
 	
@@ -48,11 +59,7 @@ func upd_gravity():
 	
 	# Apply gravity
 	var l_vel = get_linear_velocity()
-	l_vel += gravity_dir / 5
+	l_vel += gravity_dir * gravity_str
 	set_linear_velocity(l_vel)
 	
-func _fixed_process(delta):
-	upd_turning()
-	upd_driving()
-	upd_gravity()
 	
