@@ -16,12 +16,12 @@ func _ready():
 		pass
 	else:
 		pass
-	set_fixed_process(true)
+	set_physics_process(true)
 	set_gravity_scale(0)
 	set_use_custom_integrator(true)
 	pass
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	
 	#This part is where the raycast detects where the collision point is in order to re-allign the
 	#"Position" to aim at the ground to allow the object to fall towards its own gravity straight into
