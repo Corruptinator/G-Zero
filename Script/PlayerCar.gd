@@ -14,9 +14,9 @@ var gravity_dir = Vector3(0,-1,0)
 var turn_force = 0.0
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	upd_turning()
 	upd_driving()
 	upd_gravity()
